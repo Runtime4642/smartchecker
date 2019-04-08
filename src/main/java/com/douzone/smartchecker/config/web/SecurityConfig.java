@@ -63,20 +63,6 @@ public class SecurityConfig implements WebMvcConfigurer{
 	
 	}
 	
-	//Resource Mapping to URL
-		@Override
-		public void addResourceHandlers(ResourceHandlerRegistry registry) {
-			registry.addResourceHandler("/uploads/images/**").addResourceLocations("file:/uploads/");
-			registry.addResourceHandler("/uploads/board/**").addResourceLocations("file:/uploads/");
-		
-		}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 
