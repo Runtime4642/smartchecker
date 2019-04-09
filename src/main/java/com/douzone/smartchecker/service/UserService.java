@@ -13,8 +13,8 @@ public class UserService {
 	private UserDao userDao;
 
 	
-	public UserVo login(String id) {
-		UserVo authuser =userDao.get(id);
+	public UserVo login(String id,String password) {
+		UserVo authuser =userDao.get(id,password);
 			return authuser;
 	}
 

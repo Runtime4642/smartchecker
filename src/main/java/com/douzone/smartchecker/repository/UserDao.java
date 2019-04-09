@@ -17,10 +17,11 @@ public class UserDao{
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public UserVo get(String id) {
-		
-		return sqlSession.selectOne("user.getById",id);
-	
+	public UserVo get(String id,String password) {
+		Map<String,String> map = new HashMap<>();
+		map.put("id", id);
+		map.put("password", password);
+		return sqlSession.selectOne("user.getByIdAndPassword",map);
 	}
 	
 	

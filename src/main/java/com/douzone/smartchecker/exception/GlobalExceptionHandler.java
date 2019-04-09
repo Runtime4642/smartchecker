@@ -15,7 +15,6 @@ import com.douzone.dto.JSONResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-//@Slf4j lombok
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -34,14 +33,6 @@ public class GlobalExceptionHandler {
 		//서비스할때는 log 찍어줘야함 -> 에러내용 파일저장
 		LOG.error(errors.toString());
 		
-		
-		
-		//2.시스템 오류 안내 화면 
-//		ModelAndView mav = new ModelAndView();
-//		mav.addObject("errors",errors.toString());
-//		mav.setViewName("error/exception");
-//		
-//		return mav;
 		
 		String accept = request.getHeader("accept");
 		if(accept.matches(".*application/json.*")) {

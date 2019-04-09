@@ -3,9 +3,9 @@
 
 <mapper namespace="user">
 
-	<select id="getById" parameterType="String" resultType="uservo">
+	<select id="getByIdAndPassword" parameterType="map" resultType="uservo">
 		<![CDATA[
-			select user_no,id,name,role from t_user where id=#{id};
+			select user_no,id,name,role from t_user where id=#{id} and password=password(#{password});
 		]]>
 	</select>
 

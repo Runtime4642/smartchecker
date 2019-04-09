@@ -17,6 +17,7 @@
 				<form id="login-form" name="loginform" method="post" action="<c:url value='/' />user/auth">
 					<label class="block-label" for="email">아이디</label>
 					<input id="id" name="id" type="text" value="">
+					<input id="password" name="password" type="text" value="">
 					
 					
 					<c:if test="${not empty result}">
@@ -32,22 +33,7 @@
 			</div>
 		</div>
 		
-		<form id="login-form" name="loginform" method="post" action="<c:url value='/' />user/h">
-					<label class="block-label" for="email">123</label>
-					<input type="hidden" name="_method" value="put">
-					<input id="id" name="id" type="text" value="">
-					
-					
-					<c:if test="${not empty result}">
-							<c:if test="${result eq 'fail'}">
-								<p>
-								로그인에 실패 했습니다.
-								</p>
-							</c:if>
-					</c:if>
-						
-					<input type="submit" value="로그인">
-				</form>
+		
 		
 	</div>
 </body>

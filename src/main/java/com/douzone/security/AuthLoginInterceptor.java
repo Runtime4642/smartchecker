@@ -22,7 +22,8 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 
 		
 		String id = request.getParameter("id");
-		UserVo userVo = userService.login(id);
+		String password = request.getParameter("password");
+		UserVo userVo = userService.login(id,password);
 		if(userVo == null)
 		{
 			request.setAttribute("result", false);

@@ -3,8 +3,10 @@
 <configuration>
 	<typeAliases >
 		<typeAlias alias="uservo" type="com.douzone.smartchecker.vo.UserVo"/>
+		<typeAlias alias="calendardto" type="com.douzone.dto.CalendarDto"/>
     	</typeAliases>	
 	<mappers>
 		<mapper resource="mybatis/mappers/user.xml" />  
+		<mapper resource="mybatis/mappers/commute.xml" />  
 	</mappers>
 </configuration>

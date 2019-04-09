@@ -29,6 +29,7 @@ public class UserController {
 		
 	}
 
+	
 	//java config 로 하면 defaultservlet으로 빠짐 아마도 매핑되는게 없어서 .. 그걸 방지하기위함. auth 작동시키려고
 	@RequestMapping(value="/logout",method=RequestMethod.GET)
 	public void logout() {
