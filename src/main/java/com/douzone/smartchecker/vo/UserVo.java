@@ -4,35 +4,35 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
+
+
 public class UserVo {
 	private long no;
-
+	
+	@NotEmpty
+	@Length(min= 2,max=8)
+	private String id;
+	
 	@NotEmpty
 	@Length(min= 2,max=8)
 	private String name;
 	
-	@NotEmpty
-	@Email
-	private String email;
-	
-	@NotEmpty
-	private String password;
-	
-	@NotEmpty
-	private String gender;
-	private String joinDate;
 	private String role;
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
+	private String updateTime;
+	private String insertTime;
+	private String updateUserId;
+	private String insertUserId;
 	public long getNo() {
 		return no;
 	}
 	public void setNo(long no) {
 		this.no = no;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
@@ -40,33 +40,36 @@ public class UserVo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getEmail() {
-		return email;
+	public String getRole() {
+		return role;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setRole(String role) {
+		this.role = role;
 	}
-	public String getPassword() {
-		return password;
+	public String getUpdateTime() {
+		return updateTime;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUpdateTime(String updateTime) {
+		this.updateTime = updateTime;
 	}
-	public String getGender() {
-		return gender;
+	public String getInsertTime() {
+		return insertTime;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setInsertTime(String insertTime) {
+		this.insertTime = insertTime;
 	}
-	public String getJoinDate() {
-		return joinDate;
+	public String getUpdateUserId() {
+		return updateUserId;
 	}
-	public void setJoinDate(String joinDate) {
-		this.joinDate = joinDate;
+	public void setUpdateUserId(String updateUserId) {
+		this.updateUserId = updateUserId;
 	}
-	@Override
-	public String toString() {
-		return "UserVo [no=" + no + ", name=" + name + ", email=" + email + ", password=" + password + ", gender="
-				+ gender + ", joinDate=" + joinDate + ", role=" + role + "]";
+	public String getInsertUserId() {
+		return insertUserId;
 	}
+	public void setInsertUserId(String insertUserId) {
+		this.insertUserId = insertUserId;
+	}
+	
+	
 }

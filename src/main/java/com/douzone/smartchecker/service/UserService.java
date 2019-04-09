@@ -13,14 +13,9 @@ public class UserService {
 	private UserDao userDao;
 
 	
-	public UserVo login(String email,String password) {
-		
-		UserVo authuser =userDao.get(email,password);
-			
+	public UserVo login(String id) {
+		UserVo authuser =userDao.get(id);
 			return authuser;
-				
-				
-				
 	}
 
 	

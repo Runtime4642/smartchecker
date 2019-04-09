@@ -17,31 +17,10 @@ public class UserDao{
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public UserVo get(String email,String password)
-	{
-
-		Map<String,String> map = new HashMap<>();
-		map.put("email", email);
-		map.put("password", password);
-		UserVo userVo=sqlSession.selectOne("user.getByEmailAndPassword",map);
-		return userVo;
-	}
-	
-	
-	public UserVo get(String email) {
+	public UserVo get(String id) {
 		
-		return sqlSession.selectOne("user.getByEmail",email);
+		return sqlSession.selectOne("user.getById",id);
 	
-	}
-	public boolean update(UserVo vo)
-	{
-		return sqlSession.update("user.update",vo)==1;
-	}
-	
-	public int insert(UserVo vo) {
-		int count = sqlSession.insert("user.insert",vo);
-		return count;
-
 	}
 	
 	

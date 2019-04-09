@@ -43,7 +43,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		}
 		
 		
-		//5. @Auth가 붙어 있기 때문에 로그인 여부(인증 여부)를 확인해야 한다.
+		//5. @Auth가 붙어 있기 때문에 로그인 여부(인증 여부)를 확인
 		HttpSession session = request.getSession();
 		UserVo authUser = null;
 		if(session != null) {
