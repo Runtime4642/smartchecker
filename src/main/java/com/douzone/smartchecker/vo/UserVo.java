@@ -1,5 +1,6 @@
 package com.douzone.smartchecker.vo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,15 +12,20 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name = "t_user")
 public class UserVo {
+	
+	@Column(name="user_no", nullable = false, unique = true)
 	private long no;
+	
 	
 	@Id
 	@NotEmpty
 	@Length(min= 2,max=8)
+	@Column(name="user_id", nullable = false, unique = true)
 	private String id;
 	
 	@NotEmpty
 	@Length(min= 2,max=8)
+	@Column(name="name", nullable = false, unique = true)
 	private String username;
 	
 	private String password;

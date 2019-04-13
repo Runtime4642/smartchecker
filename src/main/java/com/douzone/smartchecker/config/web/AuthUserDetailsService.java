@@ -19,7 +19,7 @@ import com.douzone.smartchecker.vo.UserVo;
 public class AuthUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserRepository t_user;
+    private UserRepository user;
     private org.springframework.security.core.userdetails.User userdetails;
 
     @Override
@@ -73,13 +73,13 @@ public class AuthUserDetailsService implements UserDetailsService {
 
     private UserVo getUserDetail(String username) {
 
-        UserVo user2 = t_user.findByUsername(username);
-        if (user2 == null) {
+        UserVo userVo = user.findByUsername(username);
+        if (userVo == null) {
             System.out.println("user '" + username + "' on nulli!");
         } else {
-            System.out.println(user2.toString());
+            System.out.println(userVo.toString());
         }
 
-        return user2;
+        return userVo;
     }
 }

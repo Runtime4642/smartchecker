@@ -63,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .permitAll()
                 .successHandler(successHandler)
-                .usernameParameter("username").passwordParameter("password")
+                .usernameParameter("id").passwordParameter("password")
                 .and()
                 .logout().permitAll()
                 .and().exceptionHandling().accessDeniedPage("/login");
