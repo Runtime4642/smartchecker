@@ -5,9 +5,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 
 import com.douzone.smartchecker.config.web.SecurityConfig;
+import com.douzone.smartchecker.config.web.WebSecurityConfig;
 
 @Configuration 
-@Import(value= {SecurityConfig.class})
+@Import(value= {WebSecurityConfig.class})
 public class WebConfig {
 
 	

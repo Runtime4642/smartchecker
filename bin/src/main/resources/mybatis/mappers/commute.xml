@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="commute">
+
+	<select id="getByMonth" parameterType="Integer" resultType="calendardto">
+		<![CDATA[
+		select b.name,b.id,b.user_no,a.total_worktime,a.commute,a.commute_no,a.state,a.day from t_commute a,t_user b where a.user_no = b.user_no and MONTH(a.day) = #{Month};
+	]]>
+	</select>
+
+	
+	
+</mapper>

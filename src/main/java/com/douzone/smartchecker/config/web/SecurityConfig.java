@@ -14,7 +14,7 @@ import com.douzone.security.AuthLoginInterceptor;
 import com.douzone.security.AuthLogoutInterceptor;
 import com.douzone.security.AuthUserHandlerMethodArgumentResolver;
 
-@Configuration
+//@Configuration
 public class SecurityConfig implements WebMvcConfigurer{
 
 	// Argument Resolver

@@ -1,27 +1,44 @@
 package com.douzone.smartchecker.vo;
 
-import org.hibernate.validator.constraints.Email;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 
-
+@Entity
+@Table(name = "t_user")
 public class UserVo {
 	private long no;
 	
+	@Id
 	@NotEmpty
 	@Length(min= 2,max=8)
 	private String id;
 	
 	@NotEmpty
 	@Length(min= 2,max=8)
-	private String name;
+	private String username;
 	
+	private String password;
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	private String role;
 	private String updateTime;
 	private String insertTime;
 	private String updateUserId;
 	private String insertUserId;
+	
+	 public UserVo() {
+	    }
+
 	public long getNo() {
 		return no;
 	}
@@ -34,11 +51,12 @@ public class UserVo {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	
+	public String getUsername() {
+		return username;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getRole() {
 		return role;
@@ -70,6 +88,13 @@ public class UserVo {
 	public void setInsertUserId(String insertUserId) {
 		this.insertUserId = insertUserId;
 	}
+	@Override
+	public String toString() {
+		return "UserVo [no=" + no + ", id=" + id + ", username=" + username + ", password=" + password + ", role="
+				+ role + ", updateTime=" + updateTime + ", insertTime=" + insertTime + ", updateUserId=" + updateUserId
+				+ ", insertUserId=" + insertUserId + "]";
+	}
+	
 	
 	
 }

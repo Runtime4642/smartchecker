@@ -14,7 +14,7 @@
 		
 		<div id="content">
 			<div id="user">
-				<form id="login-form" name="loginform" method="post" action="<c:url value='/' />login">
+				<form id="login-form" name="loginform" method="post" action="<c:url value='/' />user/auth">
 					<label class="block-label" for="email">아이디</label>
 					<input id="id" name="id" type="text" value="">
 					<input id="password" name="password" type="text" value="">
