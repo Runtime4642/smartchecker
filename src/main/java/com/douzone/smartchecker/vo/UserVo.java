@@ -7,6 +7,7 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.security.core.userdetails.UserDetails;
 
 
 @Entity
@@ -20,13 +21,13 @@ public class UserVo {
 	@Id
 	@NotEmpty
 	@Length(min= 2,max=8)
-	@Column(name="user_id", nullable = false, unique = true)
-	private String id;
+	@Column(name="id", nullable = false, unique = true)
+	private String username;
 	
 	@NotEmpty
 	@Length(min= 2,max=8)
 	@Column(name="name", nullable = false, unique = true)
-	private String username;
+	private String name;
 	
 	private String password;
 	
@@ -51,12 +52,7 @@ public class UserVo {
 	public void setNo(long no) {
 		this.no = no;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+
 	
 	public String getUsername() {
 		return username;
@@ -96,11 +92,20 @@ public class UserVo {
 	}
 	@Override
 	public String toString() {
-		return "UserVo [no=" + no + ", id=" + id + ", username=" + username + ", password=" + password + ", role="
+		return "UserVo [no=" + no + ", username=" + username + ", name=" + name + ", password=" + password + ", role="
 				+ role + ", updateTime=" + updateTime + ", insertTime=" + insertTime + ", updateUserId=" + updateUserId
 				+ ", insertUserId=" + insertUserId + "]";
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	
+	
+	
+
 	
 	
 }

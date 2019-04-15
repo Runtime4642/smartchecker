@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.douzone.dto.CalendarDto;
-import com.douzone.security.Auth;
-import com.douzone.security.Auth.Role;
 import com.douzone.smartchecker.service.CommuteService;
 
 
-@Auth
+
 @RequestMapping("/commute")
 @Controller
 public class CommuteController {
@@ -31,7 +29,7 @@ public class CommuteController {
 	}
 	
 	//나중에 GET - >PUT으로 바꿔야함
-	@Auth(Role.ADMIN)
+	//@Auth(Role.ADMIN)
 	@RequestMapping(value="/{no}",method=RequestMethod.GET)
 	public void modify(@PathVariable("no") Long no) {
 		

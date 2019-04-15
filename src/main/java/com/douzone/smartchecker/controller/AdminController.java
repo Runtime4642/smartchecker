@@ -2,18 +2,17 @@ package com.douzone.smartchecker.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.douzone.smartchecker.service.UserService;
-import com.douzone.smartchecker.vo.UserDetailVo;
 
-@RequestMapping("/user")
+@RequestMapping("/admin")
 @Controller
-public class UserController {
+public class AdminController {
 
 	@Autowired
 	private UserService userService;
@@ -31,16 +30,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/")
-	public String main(@AuthenticationPrincipal UserDetailVo user) {
+	public String main(Authentication authentication) {
+		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+		System.out.println(userDetails.getUsername());
+		System.out.println(userDetails.getPassword());
 		
-		System.out.println(user.getName());
-		System.out.println(user.getUsername());
-		System.out.println(user.getPassword());
-		
-//		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-//		System.out.println(userDetails.getUsername());
-//		System.out.println(userDetails.getPassword());
-
+		System.out.println("어드미이인~");
 //		UserVo userVo = (UserVo) authentication.getPrincipal();
 //		System.out.println(userVo.toString());
 		return "user/login";

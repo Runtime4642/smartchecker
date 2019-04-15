@@ -1,4 +1,4 @@
-package com.douzone.smartchecker.config.web;
+package com.douzone.security;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import com.douzone.smartchecker.repository.UserRepository;
+import com.douzone.smartchecker.vo.UserDetailVo;
 import com.douzone.smartchecker.vo.UserVo;
 
 @Repository
@@ -21,6 +21,9 @@ public class AuthUserDetailsService implements UserDetailsService {
     @Autowired
     private UserRepository user;
     private org.springframework.security.core.userdetails.User userdetails;
+    
+    
+    private UserDetailVo userDeatilVo;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -37,17 +40,19 @@ public class AuthUserDetailsService implements UserDetailsService {
              num = 1;
             else
              num=2;
-            userdetails = new User(user.getUsername(),
+            userDeatilVo = new UserDetailVo(user.getUsername(),
                     user.getPassword(),
+                    user.getName(),
                     enabled,
                     accountNonExpired,
                     credentialsNonExpired,
                     accountNonLocked,
                     getAuthorities(num)
             );
-            return userdetails;
+            return userDeatilVo;
         } else {
-            userdetails = new User("empty",
+        	userDeatilVo = new UserDetailVo("empty",
+                    "empty",
                     "empty",
                     false,
                     true,
@@ -55,7 +60,7 @@ public class AuthUserDetailsService implements UserDetailsService {
                     false,
                     getAuthorities(1)
             );
-            return userdetails;
+            return userDeatilVo;
         }
     }
 

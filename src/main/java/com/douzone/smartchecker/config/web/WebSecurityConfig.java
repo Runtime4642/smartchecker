@@ -3,7 +3,6 @@ package com.douzone.smartchecker.config.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,9 +12,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.douzone.security.MyAuthenticationSuccessHandler;
+
 //@Configuration
 @EnableWebSecurity
-//@ComponentScan("com.douzone.security")
+@ComponentScan("com.douzone.security")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -55,18 +56,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
          .csrf().disable();
         http
                 .authorizeRequests()
-                .antMatchers("/user/login", "/home", "/images/**", "/assets/**", "/hiihaa/**").permitAll()
+                .antMatchers("/user/login", "/home", "/assets/**", "/assets/**").permitAll()
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/user/login")
                 .permitAll()
                 .successHandler(successHandler)
                 .usernameParameter("id").passwordParameter("password")
                 .and()
                 .logout().permitAll()
-                .and().exceptionHandling().accessDeniedPage("/login");
+                .and().exceptionHandling().accessDeniedPage("/user/login");
     }
 
     @Override

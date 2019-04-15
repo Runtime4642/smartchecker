@@ -1,4 +1,4 @@
-package com.douzone.smartchecker.config.web;
+package com.douzone.security;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,9 +52,9 @@ public class MyAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucce
         }
  
         if (isAdmin(roles)) {
-            return "/admin";
+            return "/admin/";
         } else if (isUser(roles)) {
-            return "/hello";
+            return "/user/";
         } else {
             return "/login-error";
         }
